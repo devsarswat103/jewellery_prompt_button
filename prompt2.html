@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Jewelry Prompt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .show-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .show-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .show-btn:active {
+            transform: translateY(0);
+        }
+
+        .hide-btn {
+            background: #f0f0f0;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .hide-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .prompt-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .prompt-box.show {
+            max-height: 500px;
+            opacity: 1;
+            margin-bottom: 20px;
+        }
+
+        .prompt-box h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .prompt-text {
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+        .emoji {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .prompt-title {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+
+            .prompt-box {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ AI Jewelry Prompts</h1>
+
+        <div class="button-container">
+            <button class="show-btn" onclick="showPrompt()">📋 Show Prompt</button>
+            <button class="hide-btn" onclick="hidePrompt()">✕ Hide</button>
+        </div>
+
+        <div class="prompt-box" id="promptBox">
+            <div class="prompt-title">💎 Dark Velvet Luxury</div>
+            <div class="prompt-text">
+			 A professional close-up product shot of diamond jewellery displayed on dark black velvet fabric. Soft
+			 diffused spotlight creating gentle shadows. The jewellery sparkles vividly. Deep contrast and cinematic
+			 tones.
+            </div>
+            <button class="copy-btn" onclick="copyPrompt()">📋 Copy Prompt</button>
+        </div>
+    </div>
+
+    <script>
+        function showPrompt() {
+            const promptBox = document.getElementById('promptBox');
+            promptBox.classList.add('show');
+        }
+
+        function hidePrompt() {
+            const promptBox = document.getElementById('promptBox');
+            promptBox.classList.remove('show');
+        }
+
+        function copyPrompt() {
+            const promptText = "A luxurious golden necklace with intricate filigree patterns, adorned with emerald stones, photographed on white marble background with studio lighting, professional jewelry photography, high-end luxury style.";
+            navigator.clipboard.writeText(promptText).then(() => {
+                alert('✅ Prompt copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
